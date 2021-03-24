@@ -1,0 +1,35 @@
+body {
+  overflow: hidden;
+  position: fixed;
+  background: #242424;
+}
+
+#editor {
+  width: 45%;
+  max-height: 1080px !important;
+  background: #242424;
+}
+
+#editor .editor_input {
+  height: 32vh;
+  min-width: 35vw;
+  max-width: 800px;
+  min-height: 20vh;
+  border-radius: 3px;
+  background: #7a7a7a;
+  border: none;
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  background: white;
+  border-radius: 3px;
+  min-height: 720px;
+  height: 97vh;
+  max-height: 1080px;
+  overflow-y: scroll;
+}
+/*# sourceMappingURL=app.css.map */

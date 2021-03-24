@@ -1,0 +1,31 @@
+body {
+  overflow: hidden;
+  position: fixed;
+  background: rgb(36, 36, 36);
+}
+#editor {
+  width: 45%;
+  max-height: 1080px !important;
+  background: rgb(36, 36, 36);
+  .editor_input {
+    height: 32vh;
+    min-width: 35vw;
+    max-width: 800px;
+    min-height: 20vh;
+    border-radius: 3px;
+    background: rgb(122, 122, 122);
+    border: none;
+  }
+}
+#canvas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  background: white;
+  border-radius: 3px;
+  min-height: 720px;
+  height: 97vh;
+  max-height: 1080px;
+  overflow-y: scroll;
+}
