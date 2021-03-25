@@ -6,29 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anon PlayGround</title>
 
-    <link rel="stylesheet" href="../assets/css/min/app.min.css">
+    <!-- Minification is a good practice but not necessary for what we are doing here -->
+    <link rel="stylesheet" href="../assets/css/app.css">
 </head>
 <body>
-    <div id="editor">
-        <textarea 
-        id="html"
-        class="editor_input"
-        placeholder="HTML CONTENT"
-        ></textarea>
-        <textarea 
-        id="js"
-        class="editor_input"
-        placeholder="JS CONTENT"
-        ></textarea>
-        <textarea 
-        id="css"
-        class="editor_input"
-        placeholder="CSS CONTENT"
-        ></textarea>
-    </div>
-    <div id="canvas"></div>
+<!--
+Here the page is divided into two sections and using the css and a flex component
+they are positioned equally across the page
+-->
+<div id="container">
+    <!-- First child element -->
+    <section id="editor">
+        <!--
+        Owen it's never really necessary to break attributes across multiple lines unless it makes
+        reading the code easier.  I've moved these textareas back into line
+        -->
+        <label for="html">HTML Code</label>
+        <textarea id="html" class="editor_input" placeholder="HTML CONTENT"></textarea>
+        <label for="js">javaScript Code</label>
+        <textarea id="js" class="editor_input" placeholder="JS CONTENT"></textarea>
+        <label for="css">CSS Code</label>
+        <textarea id="css" class="editor_input" placeholder="CSS CONTENT"></textarea>
+    </section>
 
-    <script id="JS_content"></script>
-    <script src="../assets/js/editor.js"></script>
+    <!-- Second child element -->
+    <section id="output">
+        <label for="canvas">Output</label>
+        <div id="canvas"></div>
+    </section>
+</div>
+
+<script id="JS_content"></script>
+<script src="../assets/js/editor.js"></script>
 </body>
 </html>
