@@ -1,31 +1,67 @@
 body {
   overflow: hidden;
   position: fixed;
-  background: rgb(36, 36, 36);
-}
-#editor {
-  width: 45%;
-  max-height: 1080px !important;
-  background: rgb(36, 36, 36);
-  .editor_input {
-    height: 32vh;
-    min-width: 35vw;
-    max-width: 800px;
-    min-height: 20vh;
-    border-radius: 3px;
-    background: rgb(122, 122, 122);
-    border: none;
+  background: #242424;
+  #container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    > section {
+      height: 100vh;
+      width: 50vw;
+      flex: 0 0 calc(50% - 0.5em);
+    }
+    section {
+      > label {
+        font-family: sans-serif;
+        font-size: 1.3em;
+        color: aliceblue;
+        padding-bottom: 1em;
+      }
+    }
+    #editor {
+      margin-left: 6em;
+      width: 45%;
+      max-height: 1080px !important;
+      background: #242424;
+      display: flex;
+      flex-direction: column;
+      > textarea {
+        height: 20vh;
+        min-width: 35vw;
+        max-width: 800px;
+        min-height: 20vh;
+        border-radius: 3px;
+        border: none;
+        
+        background-color: #7a7a7a;
+      }
+      > button.run_button {
+        margin-top: 1em;
+        min-width: 35vw;
+        max-width: 800px;
+        padding: .5em;
+        border: none;
+        border-radius: 3px;
+
+        background: #32cd32;
+        font-size: 2em;
+      }
+      > button.run_button:hover {
+        background: #2aac2a;
+        cursor: pointer;
+      }
+    }
+    #canvas {
+      border: none;
+      border-radius: 3px;
+      overflow-y: scroll;
+      height: 90vh;
+      min-width: 900px;
+      max-width: 900px;
+
+      background: white;
+    }
   }
-}
-#canvas {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 55%;
-  background: white;
-  border-radius: 3px;
-  min-height: 720px;
-  height: 97vh;
-  max-height: 1080px;
-  overflow-y: scroll;
 }

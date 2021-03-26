@@ -4,81 +4,84 @@ body {
   background: #242424;
 }
 
-/*
-This is the parent element on the page.
-I've set it as a flex item which means the browser will handle its positioning.
- */
-#container {
-  display: flex; /* Modern approach to page positioning */
-  flex-direction: row; /* Position child elements left to right */
-  justify-items: center; /* Center the items on the x axis */
-  justify-content: space-between; /* Adds space between the items */
-
+body #container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-/*
-This is a much better way to target items.  Whilst using classes is an acceptable approach
-this can target items in one go.  This is basically saying target all <section> tags
-inside the element with id container
- */
-#container > section {
+body #container > section {
   height: 100vh;
   width: 50vw;
-  flex: 0 0 calc(50% - 0.5em); /* This adds a gutter between the items */
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(50% - 0.5em);
+          flex: 0 0 calc(50% - 0.5em);
 }
 
-/*
-Because the editor element has child elements I've also converted this to a flex container
-but this time the items are ordered top to bottom
- */
-#editor {
-  width: 45%;
-  max-height: 1080px !important; /* Owen the use of the !important declaration should be used very sparingly if at all */
-  background: #242424;
-
-  display: flex;
-  flex-direction: column;
-}
-
-/*
-None of the inputs on the page had a direction to the user on what they should be used for
-this styles all the label elements on the page
- */
-section > label {
+body #container section > label {
   font-family: sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.3em;
   color: aliceblue;
   padding-bottom: 1em;
 }
 
-/*
-No need to class an element unless you intend to target it with js
- */
-#editor > textarea {
+body #container #editor {
+  margin-left: 6em;
+  width: 45%;
+  max-height: 1080px !important;
+  background: #242424;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body #container #editor > textarea {
   height: 20vh;
   min-width: 35vw;
   max-width: 800px;
   min-height: 20vh;
   border-radius: 3px;
-  background: #7a7a7a;
   border: none;
+  background-color: #7a7a7a;
 }
-/*
-#editor .editor_input {
-  height: 32vh;
+
+body #container #editor > button.run_button {
+  margin-top: 1em;
   min-width: 35vw;
   max-width: 800px;
-  min-height: 20vh;
-  border-radius: 3px;
-  background: #7a7a7a;
+  padding: .5em;
   border: none;
-}
- */
-
-#canvas {
-  background: white;
   border-radius: 3px;
-  height: 97vh;
+  background: #32cd32;
+  font-size: 2em;
+}
+
+body #container #editor > button.run_button:hover {
+  background: #2aac2a;
+  cursor: pointer;
+}
+
+body #container #canvas {
+  border: none;
+  border-radius: 3px;
   overflow-y: scroll;
+  height: 90vh;
+  min-width: 900px;
+  max-width: 900px;
+  background: white;
 }
 /*# sourceMappingURL=app.css.map */

@@ -5,7 +5,7 @@ const editor = () => {
     // The approach of declaring a variable without assigning can cause issues
     // and undesired results
     //
-    // RESEARCH FOR YOU
+    // RESEARCH
     // What would the default value for a declared variable without any instantiation be?
     //
     // The use of the var keyword is deprecated because of the possibility of hoisting,
@@ -38,25 +38,45 @@ const editor = () => {
     // Because both these values are not going to change const can be used here
     const cssContent = document.getElementById("css").value;
     const htmlContent = document.getElementById("html").value;
-
-    // EXERCISE
-    // Add a button to this page that updates the output with the HTML content
-    // You will need to do some research into what an event listener is and try
-    // and hook into the CLICK event.
-
-    // return(`
-    //     <style>${cssContent}</style>
-    //     ${htmlContent}
-    // `);
+    
+    if (cssContent !== "") {
+        output = (`
+            <style>${cssContent}</style>
+            ${htmlContent}
+        `);
+    } else {
+        output = `${htmlContent}`
+    }
+    
+    
+    document.getElementById("canvas").innerHTML = output;
 }
 
+const editorJS = () => {
+    const test = document.getElementById("run").onclick
+    let jsContent = document.getElementById("js").value;
+    let jsCount = 0;
+    if (jsContent === jsContent) {
+        jsContent = `<script id="js${jsCount}">${jsContent}</script>`;
+        let script = document.createElement("script");
+        script.setAttribute('id', `js${jsCount}`)
+        document.body.appendChild(script);
+        document.getElementById
+        while (true) {
+            jsCount++;
+        }
+    }
+}
 /*
 This is called an Immediately Invoked Function
  */
 (() => {
-    document.getElementById("canvas").innerHTML = editor();
-
-    /* This variable is not necessary because the document call directly */
-    const jsContent = document.getElementById("js").value;
-    document.getElementById("js").innerHTML = jsContent;
+    document.getElementById("run").addEventListener(
+        "click", 
+        editor
+    );
+    document.getElementById("run").addEventListener(
+        "click",
+        editorJS
+    );
 })()
