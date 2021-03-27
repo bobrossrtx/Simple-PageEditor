@@ -6,7 +6,7 @@ const editor = () => {
     // and undesired results
     //
     // RESEARCH
-    // What would the default value for a declared variable without any instantiation be?
+    // What would the default value for a declared variable without any instantiation be? undefined
     //
     // The use of the var keyword is deprecated because of the possibility of hoisting,
     // so the modern approach is to use either let or const.
@@ -58,12 +58,18 @@ const editorJS = () => {
 
     // So I bet when you clicked the button, nothing happened and the browser appeared to crash
     // Let me explain:
-    // You grab the contents of #js here
+    // You grab the contents of #js hered
     let jsContent = document.getElementById("js").value;
 
     // then you set a counter to 0.
     // Can you explain to me what you are trying to achieve with this counter?
     let jsCount = 0;
+    // I was thinking, if I had appended a new script each time the run button was pressed, it would add 0, 1, 2, so on to the id of each script element which would run the code each time
+    /* Eg.
+        <script id="js0">New Code</script> <!-- Runs when run is clicked for 1st time -->
+        <script id="js1">New Code</script> <!-- Runs when run is clicked for 2nd time -->
+        <script id="js1">New Code</script> <!-- So on -->
+    */
 
     // This condition will always evaluate to true because at this point
     // jsContent is just jsContent
@@ -112,7 +118,27 @@ const editorJS = () => {
             jsCount++;
         }
     }
+
 }
+
+/*
+Story:
+    If I'm a user, I want to be able to click run and the when the javascript is changed, it executes.
+Problem:
+    When I update the JS, it doesn't execute / work.
+    Counter Method:
+        Thrown into infinite loop
+        Tried to make jsCount += 1 each time the run button was pushed
+        JS output = (
+            <script id="js0">Js code</script>
+            <script id="js1">Js code</script>
+            <script id="js2">Js code</script>
+        )
+Criteria:
+    Users can input code/markup in the textarea inputs, and when ran, runs all input entered onto the canvas.
+    Non counter method.
+*/
+
 /*
 This is called an Immediately Invoked Function
  */
@@ -122,11 +148,13 @@ This is called an Immediately Invoked Function
     // document.getElementById("run").addEventListener(
     //     "click",
     //     editor
-    // );
+    // ); 
+    // I believe this is required since editor + editorJS are both separate functions
 
     // This is the correct way to add an eventListener, well done!
     document.getElementById("run").addEventListener(
         "click",
-        editorJS
+        editorJS // Problem here is, If I'm only running editorJS, it won't execute the editor function, which is for the HTML/CSS input
     );
+    
 })()
