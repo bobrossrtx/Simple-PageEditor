@@ -53,15 +53,61 @@ const editor = () => {
 }
 
 const editorJS = () => {
-    const test = document.getElementById("run").onclick
+    // So you've defined this constant here but it isn't used and so can be removed
+    // const test = document.getElementById("run").onclick
+
+    // So I bet when you clicked the button, nothing happened and the browser appeared to crash
+    // Let me explain:
+    // You grab the contents of #js here
     let jsContent = document.getElementById("js").value;
+
+    // then you set a counter to 0.
+    // Can you explain to me what you are trying to achieve with this counter?
     let jsCount = 0;
+
+    // This condition will always evaluate to true because at this point
+    // jsContent is just jsContent
     if (jsContent === jsContent) {
+
+        // You alter the content of jsContent here to wrap what had been written
+        // with a script tag.  But this is never used inside this condition and
+        // so won't be evaluated at all
         jsContent = `<script id="js${jsCount}">${jsContent}</script>`;
+
+        // This creates a script element.
         let script = document.createElement("script");
+
+        // Here the id attribute will be #js0
         script.setAttribute('id', `js${jsCount}`)
+
+        // You append the script tag to the DOM (Document Object Model) here
         document.body.appendChild(script);
-        document.getElementById
+
+        // This does nothing except throws an exception
+        // Expression statement is not assignment or call
+        // To explain:
+        // document is defined as part of the standard library libDOM
+        // getElementById is a method of document which will return a reference
+        // to an element located within the DOM
+        //
+        // But here you are just making a reference to the method and not executing it.
+        //
+        // To execute the method you need to use the method correctly as you did with jsContent above
+
+        // document.getElementById
+
+        // This is your problem because you have setup a never ending loop
+        // with no way to get out of it, so the minute the button is clicked
+        // this loop is entered and jsCount continues to be incremented
+        //
+        // Think of it this way
+        // Start Loop with condition
+        //   - is the condition true: YES <---
+        //   - increment counter             |
+        //   - loop to condition -------------
+        //
+        // With no way of testing a value this will never stop executing
+        // until the compiler panics
         while (true) {
             jsCount++;
         }
@@ -71,10 +117,14 @@ const editorJS = () => {
 This is called an Immediately Invoked Function
  */
 (() => {
-    document.getElementById("run").addEventListener(
-        "click", 
-        editor
-    );
+    // So what you've done here is added an eventListener to the editor itself
+    // this is unnecessary.
+    // document.getElementById("run").addEventListener(
+    //     "click",
+    //     editor
+    // );
+
+    // This is the correct way to add an eventListener, well done!
     document.getElementById("run").addEventListener(
         "click",
         editorJS
